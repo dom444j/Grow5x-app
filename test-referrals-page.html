@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Referrals Page</title>
+</head>
+<body>
+    <h1>Test de Página de Referidos</h1>
+    <p>Probando acceso a: <a href="https://grow5x.app/referrals" target="_blank">https://grow5x.app/referrals</a></p>
+    
+    <script>
+        // Test de acceso directo
+        fetch('https://grow5x.app/referrals')
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                return response.text();
+            })
+            .then(html => {
+                console.log('HTML length:', html.length);
+                console.log('HTML preview:', html.substring(0, 500));
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Redirect Register</title>
+</head>
+<body>
+    <h1>Test de Redirección a Registro</h1>
+    <p>Haciendo clic en el enlace de abajo deberías ser redirigido a la página de registro con el código de referido:</p>
+    <a href="https://grow5x.app/register?ref=PARENT001" target="_blank">Ir a Registro con PARENT001</a>
+    
+    <script>
+        // Auto-redirect después de 2 segundos
+        setTimeout(() => {
+            window.location.href = 'https://grow5x.app/register?ref=PARENT001';
+        }, 2000);
+    </script>
+</body>
+</html>

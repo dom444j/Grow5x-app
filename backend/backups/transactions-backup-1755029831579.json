@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-08-12T20:17:11.579Z",
+  "totalTransactions": 973,
+  "transactionsByType": [
+    {
+      "_id": "earnings",
+      "count": 676,
+      "totalAmount": 0
+    },
+    {
+      "_id": "package_purchase",
+      "count": 235,
+      "totalAmount": 0
+    },
+    {
+      "_id": "commission",
+      "count": 56,
+      "totalAmount": 0
+    },
+    {
+      "_id": "withdrawal",
+      "count": 3,
+      "totalAmount": 0
+    },
+    {
+      "_id": "deposit",
+      "count": 3,
+      "totalAmount": 0
+    }
+  ],
+  "transactionsByStatus": [
+    {
+      "_id": "completed",
+      "count": 932
+    },
+    {
+      "_id": "pending",
+      "count": 41
+    }
+  ],
+  "userCount": 15,
+  "walletCount": 14,
+  "commissionCount": 12
+}

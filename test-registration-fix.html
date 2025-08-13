@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Registration Fix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Registration Referral Validation</h1>
+        <p>This test verifies that the referral code validation works correctly after the frontend fix.</p>
+        
+        <form id="testForm">
+            <div class="form-group">
+                <label for="referralCode">Referral Code:</label>
+                <input type="text" id="referralCode" value="PARENT001" placeholder="Enter referral code">
+            </div>
+            <button type="submit">Validate Referral Code</button>
+        </form>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const referralCode = document.getElementById('referralCode').value;
+            const resultDiv = document.getElementById('result');
+            
+            if (!referralCode) {
+                resultDiv.innerHTML = '<div class="result error">Please enter a referral code</div>';
+                return;
+            }
+            
+            try {
+                resultDiv.innerHTML = '<div class="result">Validating...</div>';
+                
+                const response = await fetch(`https://grow5x.app/api/referrals/validate/${referralCode}`);
+                const data = await response.json();
+                
+                console.log('API Response:', data);
+                
+                // Test the corrected validation logic: response.data.valid (not response.data.data.valid)
+                if (response.ok && data.success && data.data.valid) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            ✅ Referral code is VALID!<br>
+                            Code: ${data.data.code}<br>
+                            User: ${data.data.user.name}<br>
+                            Email: ${data.data.user.email}<br>
+                            Message: ${data.data.message}
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result error">
+                            ❌ Referral code is INVALID<br>
+                            ${data.message || 'Unknown error'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        ❌ Network error: ${error.message}
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Validación Referidos - Solución</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Test Validación de Códigos de Referido - Solución Aplicada</h1>
+        <p>Este test verifica que la solución al problema de validación de códigos de referido funciona correctamente.</p>
+        
+        <div class="test-section">
+            <h2>📋 Problemas Solucionados:</h2>
+            <ul>
+                <li>✅ Estructura de respuesta del servicio corregida</li>
+                <li>✅ Código de referido no editable cuando viene de link</li>
+                <li>✅ Código de referido editable en registro general</li>
+                <li>✅ Validación consistente entre frontend y backend</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🧪 Test 1: Validación de Código Válido</h2>
+            <input type="text" id="validCode" placeholder="Código válido" value="PARENT001">
+            <button onclick="testValidCode()">Validar Código Válido</button>
+            <div id="validResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🧪 Test 2: Validación de Código Inválido</h2>
+            <input type="text" id="invalidCode" placeholder="Código inválido" value="INVALID123">
+            <button onclick="testInvalidCode()">Validar Código Inválido</button>
+            <div id="invalidResult"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🧪 Test 3: Simulación de Link de Referido</h2>
+            <p>Simula el comportamiento cuando un usuario llega desde un link de referido:</p>
+            <button onclick="simulateReferralLink()">Simular Link con PARENT001</button>
+            <div id="linkResult"></div>
+        </div>
+
+        <div class="test-section info">
+            <h2>📝 Instrucciones de Prueba Manual:</h2>
+            <ol>
+                <li><strong>Registro General:</strong> Ve a <a href="http://localhost:5173/register" target="_blank">http://localhost:5173/register</a> - El código debe ser editable</li>
+                <li><strong>Link de Referido:</strong> Ve a <a href="http://localhost:5173/register?ref=PARENT001" target="_blank">http://localhost:5173/register?ref=PARENT001</a> - El código debe ser no editable</li>
+                <li><strong>Validación:</strong> Intenta registrarte con códigos válidos e inválidos para verificar la validación</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+
+        async function testValidCode() {
+            const code = document.getElementById('validCode').value;
+            const resultDiv = document.getElementById('validResult');
+            await testCode(code, resultDiv, 'válido');
+        }
+
+        async function testInvalidCode() {
+            const code = document.getElementById('invalidCode').value;
+            const resultDiv = document.getElementById('invalidResult');
+            await testCode(code, resultDiv, 'inválido');
+        }
+
+        async function testCode(code, resultDiv, expectedType) {
+            try {
+                resultDiv.innerHTML = '<div class="result info">Validando...</div>';
+                
+                const response = await axios.get(`${API_BASE}/referrals/validate/${code}`);
+                console.log('Respuesta completa:', response.data);
+                
+                const isValid = response.data.success && response.data.data?.valid;
+                
+                if (isValid) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            ✅ Código ${expectedType === 'válido' ? 'VÁLIDO' : 'VÁLIDO (inesperado)'}: ${response.data.data.message}<br>
+                            👤 Usuario: ${response.data.data.user?.name} (${response.data.data.user?.email})
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result ${expectedType === 'inválido' ? 'success' : 'error'}">
+                            ${expectedType === 'inválido' ? '✅' : '❌'} Código ${expectedType === 'inválido' ? 'INVÁLIDO (esperado)' : 'INVÁLIDO (inesperado)'}: ${response.data.data?.message || 'Código no válido'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        ❌ Error de conexión: ${error.message}<br>
+                        Verifica que el backend esté ejecutándose en ${API_BASE}
+                    </div>
+                `;
+            }
+        }
+
+        async function simulateReferralLink() {
+            const resultDiv = document.getElementById('linkResult');
+            resultDiv.innerHTML = `
+                <div class="result info">
+                    🔗 Simulando link de referido...<br>
+                    <strong>URL:</strong> http://localhost:5173/register?ref=PARENT001<br>
+                    <strong>Comportamiento esperado:</strong> Código no editable, validación automática
+                </div>
+            `;
+            
+            // Abrir en nueva ventana
+            setTimeout(() => {
+                window.open('http://localhost:5173/register?ref=PARENT001', '_blank');
+                resultDiv.innerHTML += `
+                    <div class="result success">
+                        ✅ Ventana abierta. Verifica que el código PARENT001 aparezca como no editable.
+                    </div>
+                `;
+            }, 1000);
+        }
+
+        // Ejecutar test automático al cargar
+        window.onload = () => {
+            console.log('🚀 Iniciando tests automáticos...');
+            setTimeout(() => testValidCode(), 1000);
+            setTimeout(() => testInvalidCode(), 2000);
+        };
+    </script>
+</body>
+</html>

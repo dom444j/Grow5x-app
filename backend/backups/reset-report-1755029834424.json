@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-08-12T20:17:14.424Z",
+  "action": "COMPLETE_TRANSACTION_RESET",
+  "results": {
+    "transactionsDeleted": 973,
+    "commissionsDeleted": 12,
+    "usersReset": 15,
+    "walletsReset": 14,
+    "finalState": {
+      "transactions": 0,
+      "commissions": 0,
+      "users": 15,
+      "wallets": 14,
+      "usersWithBalance": 0,
+      "walletsWithBalance": 0
+    }
+  },
+  "backupFile": "./backups/transactions-backup-1755029831579.json"
+}

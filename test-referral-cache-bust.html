@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Referral Validation - Cache Bust</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            margin: 5px;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test de Validación de Código de Referido</h1>
+        <p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
+        
+        <div class="test-section info">
+            <h3>📝 Test Manual</h3>
+            <input type="text" id="referralInput" placeholder="Código de referido" value="PARENT001">
+            <button onclick="testReferralCode()">Validar Código</button>
+            <div id="manualResult"></div>
+        </div>
+
+        <div class="test-section info">
+            <h3>🔄 Test Automático</h3>
+            <button onclick="runAutomaticTests()">Ejecutar Tests</button>
+            <div id="automaticResults"></div>
+        </div>
+
+        <div class="test-section info">
+            <h3>📊 Logs de Red</h3>
+            <div id="networkLogs"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar timestamp para verificar que no hay cache
+        document.getElementById('timestamp').textContent = new Date().toISOString();
+        
+        const API_BASE = 'https://grow5x.app/api';
+        
+        function logNetwork(message, data = null) {
+            const logsDiv = document.getElementById('networkLogs');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            if (data) {
+                logEntry.innerHTML += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            }
+            logsDiv.appendChild(logEntry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+        
+        async function testReferralCode() {
+            const code = document.getElementById('referralInput').value.trim();
+            const resultDiv = document.getElementById('manualResult');
+            
+            if (!code) {
+                resultDiv.innerHTML = '<div class="error">❌ Por favor ingresa un código</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<div class="info">🔄 Validando...</div>';
+            logNetwork(`Iniciando validación para código: ${code}`);
+            
+            try {
+                const url = `${API_BASE}/referrals/validate/${code}`;
+                logNetwork(`Haciendo petición a: ${url}`);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
+                
+                logNetwork(`Respuesta HTTP status: ${response.status}`);
+                
+                const data = await response.json();
+                logNetwork('Respuesta completa:', data);
+                
+                if (data.success && data.data && data.data.valid) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            ✅ <strong>Código válido!</strong><br>
+                            Usuario: ${data.data.user?.name || 'N/A'}<br>
+                            Email: ${data.data.user?.email || 'N/A'}
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            ❌ <strong>Código inválido</strong><br>
+                            Mensaje: ${data.message || 'Sin mensaje'}
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                logNetwork('Error en la petición:', error.message);
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        ❌ <strong>Error de conexión:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        async function runAutomaticTests() {
+            const resultsDiv = document.getElementById('automaticResults');
+            resultsDiv.innerHTML = '<div class="info">🔄 Ejecutando tests automáticos...</div>';
+            
+            const testCodes = [
+                { code: 'PARENT001', expected: true, description: 'Código válido conocido' },
+                { code: 'INVALID123', expected: false, description: 'Código inválido' },
+                { code: 'SHORT', expected: false, description: 'Código muy corto' },
+                { code: 'TOOLONGCODE123', expected: false, description: 'Código muy largo' }
+            ];
+            
+            let results = [];
+            
+            for (const test of testCodes) {
+                try {
+                    logNetwork(`Test: ${test.description} (${test.code})`);
+                    
+                    const response = await fetch(`${API_BASE}/referrals/validate/${test.code}`, {
+                        headers: {
+                            'Cache-Control': 'no-cache, no-store, must-revalidate',
+                            'Pragma': 'no-cache',
+                            'Expires': '0'
+                        }
+                    });
+                    
+                    const data = await response.json();
+                    const isValid = data.success && data.data && data.data.valid;
+                    const passed = isValid === test.expected;
+                    
+                    results.push({
+                        ...test,
+                        actual: isValid,
+                        passed,
+                        response: data
+                    });
+                    
+                    logNetwork(`Resultado: ${passed ? 'PASS' : 'FAIL'}`, { expected: test.expected, actual: isValid });
+                    
+                } catch (error) {
+                    results.push({
+                        ...test,
+                        actual: 'ERROR',
+                        passed: false,
+                        error: error.message
+                    });
+                    logNetwork(`Error en test: ${error.message}`);
+                }
+            }
+            
+            // Mostrar resultados
+            let html = '<h4>📋 Resultados de Tests:</h4>';
+            results.forEach(result => {
+                const statusClass = result.passed ? 'success' : 'error';
+                const statusIcon = result.passed ? '✅' : '❌';
+                html += `
+                    <div class="${statusClass}" style="margin: 10px 0; padding: 10px;">
+                        ${statusIcon} <strong>${result.description}</strong><br>
+                        Código: ${result.code}<br>
+                        Esperado: ${result.expected}<br>
+                        Actual: ${result.actual}<br>
+                        ${result.error ? `Error: ${result.error}` : ''}
+                    </div>
+                `;
+            });
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        // Auto-ejecutar test de PARENT001 al cargar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                testReferralCode();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

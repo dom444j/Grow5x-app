@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Código de Referencia</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .result { margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        input, button { padding: 10px; margin: 5px; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test de Validación de Código de Referencia</h1>
+        <div>
+            <input type="text" id="referralCode" placeholder="Ingresa código de referencia" value="PARENT001">
+            <button onclick="testReferralCode()">Validar Código</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testReferralCode() {
+            const code = document.getElementById('referralCode').value;
+            const resultDiv = document.getElementById('result');
+            
+            if (!code) {
+                resultDiv.innerHTML = '<div class="error">Por favor ingresa un código</div>';
+                return;
+            }
+
+            try {
+                resultDiv.innerHTML = '<div>Validando código...</div>';
+                
+                const response = await fetch(`https://grow5x.app/api/referrals/validate/${code}`);
+                const data = await response.json();
+                
+                console.log('Respuesta del API:', data);
+                
+                if (data.success && data.data && data.data.valid) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <h3>✅ Código Válido</h3>
+                            <p><strong>Código:</strong> ${data.data.code}</p>
+                            <p><strong>Usuario:</strong> ${data.data.user.name}</p>
+                            <p><strong>Email:</strong> ${data.data.user.email}</p>
+                            <p><strong>Mensaje:</strong> ${data.data.message}</p>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <h3>❌ Código Inválido</h3>
+                            <p>El código de referencia no es válido</p>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <h3>❌ Error de Conexión</h3>
+                        <p>Error al validar el código: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-test al cargar la página
+        window.onload = function() {
+            testReferralCode();
+        };
+    </script>
+</body>
+</html>

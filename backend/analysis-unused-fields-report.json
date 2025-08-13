@@ -1,0 +1,1030 @@
+{
+  "timestamp": "2025-08-12T19:37:30.767Z",
+  "analysis": {
+    "User": {
+      "referrals": {
+        "fieldPath": "referrals",
+        "codeReferences": {
+          "found": true,
+          "count": 52,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 13,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\controllers\\user.controller.js",
+              "matches": 4,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\routes\\admin.routes.js",
+              "matches": 15,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\routes\\commissions.routes.js",
+              "matches": 4,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\routes\\referral.routes.js",
+              "matches": 41,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\routes\\reports.routes.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\routes\\user.routes.js",
+              "matches": 9,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\routes\\users.routes.js",
+              "matches": 8,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\services\\AIService.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\services\\BenefitsProcessor.js",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\services\\UserStatusService.js",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\middleware\\referralValidation.js",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\utils\\telegram.js",
+              "matches": 3,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "\\src\\utils\\validation.js",
+              "matches": 5,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\App.jsx",
+              "matches": 4,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\charts\\ReferralCommissionChart.jsx",
+              "matches": 13,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\dashboard\\DashboardCharts.jsx",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\ReferralsManagement.jsx",
+              "matches": 68,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\ReportsManagement.jsx",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\Sidebar.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\SystemSettings.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\UserDetail.jsx",
+              "matches": 6,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\auth\\ProtectedRoute.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\auth\\RoleRedirect.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\dashboard\\ReferralsSection.jsx",
+              "matches": 54,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\index.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\layout\\Header.jsx",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\layout\\ImprovedUserLayout.jsx",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\layout\\UserSidebar.jsx",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\referrals\\CommissionList.jsx",
+              "matches": 29,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\referrals\\ReferralList.jsx",
+              "matches": 19,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\referrals\\ReferralStats.jsx",
+              "matches": 17,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\support\\AIChat.jsx",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\i18n.js",
+              "matches": 2,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\locales\\es\\admin.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\locales\\es\\dashboard.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\locales\\es\\index.js",
+              "matches": 3,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\locales\\es\\navigation.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\locales\\es\\support.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\admin\\ReferralsManagement.jsx",
+              "matches": 39,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\auth\\Register.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\dashboard\\Dashboard.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\dashboard\\index.jsx",
+              "matches": 3,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\referrals\\ReferralDashboard.jsx",
+              "matches": 91,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\referrals\\ReferralRedirect.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\referrals\\SimpleReferralTest.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\statistics\\Statistics.jsx",
+              "matches": 5,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\routes\\AdminRoutes.jsx",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\adminReferrals.service.js",
+              "matches": 17,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\index.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\referrals.service.js",
+              "matches": 10,
+              "pattern": "\\breferrals\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\supportService.js",
+              "matches": 1,
+              "pattern": "\\breferrals\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "investments.totalInvested": {
+        "fieldPath": "investments.totalInvested",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "investments.activeInvestments": {
+        "fieldPath": "investments.activeInvestments",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "investments.completedInvestments": {
+        "fieldPath": "investments.completedInvestments",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "investments.totalReturns": {
+        "fieldPath": "investments.totalReturns",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "investments.expectedReturns": {
+        "fieldPath": "investments.expectedReturns",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "investments.portfolioValue": {
+        "fieldPath": "investments.portfolioValue",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "investments.averageROI": {
+        "fieldPath": "investments.averageROI",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "activity.loginCount": {
+        "fieldPath": "activity.loginCount",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "activity.transactionCount": {
+        "fieldPath": "activity.transactionCount",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "activity.referralCount": {
+        "fieldPath": "activity.referralCount",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "activity.investmentCount": {
+        "fieldPath": "activity.investmentCount",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "package_status": {
+        "fieldPath": "package_status",
+        "codeReferences": {
+          "found": true,
+          "count": 3,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 3,
+              "pattern": "\\bpackage_status\\b"
+            },
+            {
+              "file": "\\src\\services\\BenefitsProcessor.js",
+              "matches": 1,
+              "pattern": "\\bpackage_status\\b"
+            },
+            {
+              "file": "\\src\\services\\LicenseActivationService.js",
+              "matches": 2,
+              "pattern": "\\bpackage_status\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "current_package": {
+        "fieldPath": "current_package",
+        "codeReferences": {
+          "found": true,
+          "count": 2,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 5,
+              "pattern": "\\bcurrent_package\\b"
+            },
+            {
+              "file": "\\src\\services\\LicenseActivationService.js",
+              "matches": 1,
+              "pattern": "\\bcurrent_package\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "isPioneer": {
+        "fieldPath": "isPioneer",
+        "codeReferences": {
+          "found": true,
+          "count": 7,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 2,
+              "pattern": "\\bisPioneer\\b"
+            },
+            {
+              "file": "\\src\\controllers\\auth.controller.js",
+              "matches": 4,
+              "pattern": "\\bisPioneer\\b"
+            },
+            {
+              "file": "\\src\\controllers\\payment.controller.js",
+              "matches": 7,
+              "pattern": "\\bisPioneer\\b"
+            },
+            {
+              "file": "\\src\\services\\LicenseActivationService.js",
+              "matches": 6,
+              "pattern": "\\bisPioneer\\b"
+            },
+            {
+              "file": "\\src\\services\\UserStatusService.js",
+              "matches": 1,
+              "pattern": "\\bisPioneer\\b"
+            },
+            {
+              "file": "\\src\\middleware\\auth.middleware.js",
+              "matches": 3,
+              "pattern": "\\bisPioneer\\b"
+            },
+            {
+              "file": "\\src\\utils\\validation.js",
+              "matches": 1,
+              "pattern": "\\bisPioneer\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "pioneerDetails.level": {
+        "fieldPath": "pioneerDetails.level",
+        "codeReferences": {
+          "found": true,
+          "count": 1,
+          "files": [
+            {
+              "file": "\\src\\services\\LicenseActivationService.js",
+              "matches": 1,
+              "pattern": "\\bpioneerDetails\\.level\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "balance": {
+        "fieldPath": "balance",
+        "codeReferences": {
+          "found": true,
+          "count": 36,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 36,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\commissions.controller.js",
+              "matches": 8,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\payment.controller.js",
+              "matches": 4,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\portfolio.controller.js",
+              "matches": 1,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\purchases.controller.js",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\transaction.controller.js",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\user.controller.js",
+              "matches": 5,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\wallet.controller.js",
+              "matches": 12,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\controllers\\wallet.controller.simple.js",
+              "matches": 13,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\routes\\admin.routes.js",
+              "matches": 6,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\routes\\finance.routes.js",
+              "matches": 13,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\routes\\payment.routes.js",
+              "matches": 3,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\routes\\wallet.routes.js",
+              "matches": 3,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\services\\bep20.service.js",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\services\\LicenseActivationService.js",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\services\\ReportsGenerator.js",
+              "matches": 5,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "\\src\\services\\UserStatusService.js",
+              "matches": 3,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\finance\\AdjustBalanceModal.jsx",
+              "matches": 1,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\FinanceManagement.jsx",
+              "matches": 5,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\user-status\\UserStatusTabs.jsx",
+              "matches": 3,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\UserDetail.jsx",
+              "matches": 5,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\UserManagement.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\users\\UserDetailsModal.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\users\\UserTable.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\UserStatusDashboard.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\WalletManager.jsx",
+              "matches": 4,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\dashboard\\DashboardAlerts.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\support\\AIChat.jsx",
+              "matches": 7,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\admin\\UserManagement.jsx",
+              "matches": 9,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\finance\\FinancePage.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\profile\\Profile-original.jsx",
+              "matches": 2,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\admin.service.js",
+              "matches": 7,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\adminFinancial.service.js",
+              "matches": 8,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\api.js",
+              "matches": 1,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\portfolio.service.js",
+              "matches": 6,
+              "pattern": "\\bbalance\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\services\\userStatus.service.js",
+              "matches": 3,
+              "pattern": "\\bbalance\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "totalEarnings": {
+        "fieldPath": "totalEarnings",
+        "codeReferences": {
+          "found": true,
+          "count": 16,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 12,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "\\src\\controllers\\commissions.controller.js",
+              "matches": 4,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "\\src\\controllers\\portfolio.controller.js",
+              "matches": 9,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "\\src\\controllers\\user.controller.js",
+              "matches": 3,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "\\src\\routes\\finance.routes.js",
+              "matches": 6,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "\\src\\services\\LicenseActivationService.js",
+              "matches": 1,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "\\src\\services\\NotificationService.js",
+              "matches": 1,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\AdminDashboard.jsx",
+              "matches": 3,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\UserDetail.jsx",
+              "matches": 2,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\UserStatusDashboard.jsx",
+              "matches": 1,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\referrals\\ReferralStats.jsx",
+              "matches": 1,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\admin\\AdminDashboard.jsx",
+              "matches": 5,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\dashboard\\Dashboard.jsx",
+              "matches": 6,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\dashboard\\index.jsx",
+              "matches": 3,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\finance\\FinancePage.jsx",
+              "matches": 4,
+              "pattern": "\\btotalEarnings\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\pages\\user\\statistics\\Statistics.jsx",
+              "matches": 1,
+              "pattern": "\\btotalEarnings\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      }
+    },
+    "Transaction": {
+      "pioneerPlan.plan": {
+        "fieldPath": "pioneerPlan.plan",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "pioneerPlan.duration": {
+        "fieldPath": "pioneerPlan.duration",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "pioneerPlan.originalPrice": {
+        "fieldPath": "pioneerPlan.originalPrice",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "pioneerPlan.discount": {
+        "fieldPath": "pioneerPlan.discount",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "pioneerPlan.finalPrice": {
+        "fieldPath": "pioneerPlan.finalPrice",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "invoiceId": {
+        "fieldPath": "invoiceId",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "externalReference": {
+        "fieldPath": "externalReference",
+        "codeReferences": {
+          "found": true,
+          "count": 6,
+          "files": [
+            {
+              "file": "\\src\\controllers\\admin.controller.js",
+              "matches": 5,
+              "pattern": "\\bexternalReference\\b"
+            },
+            {
+              "file": "\\src\\controllers\\payment.controller.js",
+              "matches": 16,
+              "pattern": "\\bexternalReference\\b"
+            },
+            {
+              "file": "\\src\\controllers\\purchases.controller.js",
+              "matches": 8,
+              "pattern": "\\bexternalReference\\b"
+            },
+            {
+              "file": "\\src\\services\\AutomationService.js",
+              "matches": 1,
+              "pattern": "\\bexternalReference\\b"
+            },
+            {
+              "file": "\\src\\utils\\email.js",
+              "matches": 4,
+              "pattern": "\\bexternalReference\\b"
+            },
+            {
+              "file": "C:\\Users\\DOM\\Desktop\\growx5-app\\frontend\\src\\components\\admin\\ManualPaymentVerification.jsx",
+              "matches": 1,
+              "pattern": "\\bexternalReference\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Transaction\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      }
+    },
+    "Commission": {
+      "metadata.weekNumber": {
+        "fieldPath": "metadata.weekNumber",
+        "codeReferences": {
+          "found": true,
+          "count": 2,
+          "files": [
+            {
+              "file": "\\src\\controllers\\specialCodes.controller.js",
+              "matches": 1,
+              "pattern": "\\bmetadata\\.weekNumber\\b"
+            },
+            {
+              "file": "\\src\\services\\AutomationService.js",
+              "matches": 1,
+              "pattern": "\\bmetadata\\.weekNumber\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Commission\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "metadata.cycleNumber": {
+        "fieldPath": "metadata.cycleNumber",
+        "codeReferences": {
+          "found": true,
+          "count": 2,
+          "files": [
+            {
+              "file": "\\src\\routes\\staging.js",
+              "matches": 6,
+              "pattern": "\\bmetadata\\.cycleNumber\\b"
+            },
+            {
+              "file": "\\src\\services\\OptimizedCalculationService.js",
+              "matches": 1,
+              "pattern": "\\bmetadata\\.cycleNumber\\b"
+            }
+          ]
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Commission\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "✅ MANTENER - Usado activamente"
+      },
+      "metadata.dayInCycle": {
+        "fieldPath": "metadata.dayInCycle",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Commission\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      }
+    },
+    "Package": {
+      "commissionConfig.levelCommissions": {
+        "fieldPath": "commissionConfig.levelCommissions",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Package\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      },
+      "benefitConfig.pauseDays": {
+        "fieldPath": "benefitConfig.pauseDays",
+        "codeReferences": {
+          "found": false,
+          "count": 0,
+          "files": []
+        },
+        "databaseUsage": {
+          "error": "Schema hasn't been registered for model \"Package\".\nUse mongoose.model(name, schema)"
+        },
+        "recommendation": "⚠️ REVISAR - No usado en código pero tiene datos"
+      }
+    }
+  },
+  "summary": {
+    "totalFieldsAnalyzed": 30,
+    "unusedInCode": 20,
+    "unusedInDB": 0,
+    "recommendations": [
+      "20 campos no utilizados en código",
+      "0 campos con bajo uso en DB",
+      "Revisar campos duplicados entre User y UserStatus",
+      "Considerar migración de datos antes de eliminar campos",
+      "Implementar monitoreo de uso de campos críticos"
+    ]
+  }
+}

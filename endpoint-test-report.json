@@ -1,0 +1,405 @@
+{
+  "timestamp": "2025-08-08T09:48:55.456Z",
+  "summary": {
+    "localhost": {
+      "total": 25,
+      "successful": 0,
+      "failed": 7,
+      "skipped": 18,
+      "routeNotFound": 0
+    },
+    "production": {
+      "total": 25,
+      "successful": 5,
+      "failed": 2,
+      "skipped": 18,
+      "routeNotFound": 2
+    }
+  },
+  "details": {
+    "localhost": [
+      {
+        "endpoint": "/api/public/health",
+        "method": "GET",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/public/health",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/public/stats",
+        "method": "GET",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/public/stats",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/public/info",
+        "method": "GET",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/public/info",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/auth/login",
+        "method": "POST",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/auth/login",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/user/profile",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/user/profile"
+      },
+      {
+        "endpoint": "/api/wallets",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/wallets"
+      },
+      {
+        "endpoint": "/api/users/:userId/referrals",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/users/:userId/referrals"
+      },
+      {
+        "endpoint": "/api/referrals/stats",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/referrals/stats"
+      },
+      {
+        "endpoint": "/api/payments/history",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/payments/history"
+      },
+      {
+        "endpoint": "/api/user-settings",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/user-settings"
+      },
+      {
+        "endpoint": "/api/notifications",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/notifications"
+      },
+      {
+        "endpoint": "/api/news",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/news"
+      },
+      {
+        "endpoint": "/api/admin/users",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/admin/users"
+      },
+      {
+        "endpoint": "/api/admin/system/stats",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/admin/system/stats"
+      },
+      {
+        "endpoint": "/api/admin/system/health",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/admin/system/health"
+      },
+      {
+        "endpoint": "/api/reports/dashboard",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/reports/dashboard"
+      },
+      {
+        "endpoint": "/api/packages",
+        "method": "GET",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/packages",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/licenses",
+        "method": "GET",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/licenses",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/products",
+        "method": "GET",
+        "status": "ERROR",
+        "success": false,
+        "message": "",
+        "url": "http://localhost:5000/api/products",
+        "error": "ECONNREFUSED"
+      },
+      {
+        "endpoint": "/api/downloads",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/downloads"
+      },
+      {
+        "endpoint": "/api/purchases",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/purchases"
+      },
+      {
+        "endpoint": "/api/finance/balance",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/finance/balance"
+      },
+      {
+        "endpoint": "/api/arbitrage/opportunities",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/arbitrage/opportunities"
+      },
+      {
+        "endpoint": "/api/support/tickets",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/support/tickets"
+      },
+      {
+        "endpoint": "/api/documents",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "http://localhost:5000/api/documents"
+      }
+    ],
+    "production": [
+      {
+        "endpoint": "/api/public/health",
+        "method": "GET",
+        "status": 200,
+        "success": true,
+        "message": "API is running",
+        "url": "https://grow5x.app/api/public/health",
+        "responseSize": 100
+      },
+      {
+        "endpoint": "/api/public/stats",
+        "method": "GET",
+        "status": 200,
+        "success": true,
+        "message": "OK",
+        "url": "https://grow5x.app/api/public/stats",
+        "responseSize": 167
+      },
+      {
+        "endpoint": "/api/public/info",
+        "method": "GET",
+        "status": 200,
+        "success": true,
+        "message": "OK",
+        "url": "https://grow5x.app/api/public/info",
+        "responseSize": 294
+      },
+      {
+        "endpoint": "/api/auth/login",
+        "method": "POST",
+        "status": 200,
+        "success": true,
+        "message": "Login successful",
+        "url": "https://grow5x.app/api/auth/login",
+        "responseSize": 852
+      },
+      {
+        "endpoint": "/api/user/profile",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/user/profile"
+      },
+      {
+        "endpoint": "/api/wallets",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/wallets"
+      },
+      {
+        "endpoint": "/api/users/:userId/referrals",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/users/:userId/referrals"
+      },
+      {
+        "endpoint": "/api/referrals/stats",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/referrals/stats"
+      },
+      {
+        "endpoint": "/api/payments/history",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/payments/history"
+      },
+      {
+        "endpoint": "/api/user-settings",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/user-settings"
+      },
+      {
+        "endpoint": "/api/notifications",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/notifications"
+      },
+      {
+        "endpoint": "/api/news",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/news"
+      },
+      {
+        "endpoint": "/api/admin/users",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/admin/users"
+      },
+      {
+        "endpoint": "/api/admin/system/stats",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/admin/system/stats"
+      },
+      {
+        "endpoint": "/api/admin/system/health",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/admin/system/health"
+      },
+      {
+        "endpoint": "/api/reports/dashboard",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/reports/dashboard"
+      },
+      {
+        "endpoint": "/api/packages",
+        "method": "GET",
+        "status": 200,
+        "success": true,
+        "message": "OK",
+        "url": "https://grow5x.app/api/packages",
+        "responseSize": 4565
+      },
+      {
+        "endpoint": "/api/licenses",
+        "method": "GET",
+        "status": 404,
+        "success": false,
+        "message": "Not Found",
+        "url": "https://grow5x.app/api/licenses",
+        "responseSize": 27,
+        "routeNotFound": true
+      },
+      {
+        "endpoint": "/api/products",
+        "method": "GET",
+        "status": 404,
+        "success": false,
+        "message": "Not Found",
+        "url": "https://grow5x.app/api/products",
+        "responseSize": 27,
+        "routeNotFound": true
+      },
+      {
+        "endpoint": "/api/downloads",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/downloads"
+      },
+      {
+        "endpoint": "/api/purchases",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/purchases"
+      },
+      {
+        "endpoint": "/api/finance/balance",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/finance/balance"
+      },
+      {
+        "endpoint": "/api/arbitrage/opportunities",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/arbitrage/opportunities"
+      },
+      {
+        "endpoint": "/api/support/tickets",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/support/tickets"
+      },
+      {
+        "endpoint": "/api/documents",
+        "method": "GET",
+        "status": "SKIP",
+        "message": "No hay token de autenticación",
+        "url": "https://grow5x.app/api/documents"
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Simple Referrals</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test de Página de Referidos - Diagnóstico</h1>
+        
+        <div class="test-section info">
+            <h3>1. Test de Acceso Directo</h3>
+            <p>Probando acceso a: <a href="https://grow5x.app/referrals" target="_blank">https://grow5x.app/referrals</a></p>
+            <button onclick="testDirectAccess()">Probar Acceso Directo</button>
+            <div id="direct-result"></div>
+        </div>
+        
+        <div class="test-section info">
+            <h3>2. Test de Autenticación</h3>
+            <p>Verificando si hay token de autenticación:</p>
+            <button onclick="checkAuth()">Verificar Autenticación</button>
+            <div id="auth-result"></div>
+        </div>
+        
+        <div class="test-section info">
+            <h3>3. Test de API de Referidos</h3>
+            <p>Probando endpoints de la API:</p>
+            <button onclick="testReferralAPI()">Probar API</button>
+            <div id="api-result"></div>
+        </div>
+        
+        <div class="test-section info">
+            <h3>4. Test de Navegación</h3>
+            <p>Simulando navegación desde dashboard:</p>
+            <button onclick="testNavigation()">Simular Navegación</button>
+            <div id="nav-result"></div>
+        </div>
+    </div>
+    
+    <script>
+        function testDirectAccess() {
+            const resultDiv = document.getElementById('direct-result');
+            resultDiv.innerHTML = '<p>Probando...</p>';
+            
+            fetch('https://grow5x.app/referrals')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    console.log('Response headers:', response.headers);
+                    return response.text();
+                })
+                .then(html => {
+                    console.log('HTML length:', html.length);
+                    const hasReactApp = html.includes('root') || html.includes('react');
+                    const hasReferralContent = html.includes('referral') || html.includes('Referidos');
+                    
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <p><strong>✅ Acceso exitoso</strong></p>
+                            <p>Status: ${response.status || 'OK'}</p>
+                            <p>HTML Length: ${html.length} caracteres</p>
+                            <p>Contiene React App: ${hasReactApp ? 'Sí' : 'No'}</p>
+                            <p>Contiene contenido de referidos: ${hasReferralContent ? 'Sí' : 'No'}</p>
+                        </div>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <p><strong>❌ Error de acceso</strong></p>
+                            <p>Error: ${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        function checkAuth() {
+            const resultDiv = document.getElementById('auth-result');
+            
+            // Verificar localStorage
+            const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+            const user = localStorage.getItem('user');
+            
+            // Verificar sessionStorage
+            const sessionToken = sessionStorage.getItem('token') || sessionStorage.getItem('authToken');
+            const sessionUser = sessionStorage.getItem('user');
+            
+            // Verificar cookies
+            const cookies = document.cookie;
+            
+            resultDiv.innerHTML = `
+                <div class="info">
+                    <p><strong>Estado de Autenticación:</strong></p>
+                    <p>Token en localStorage: ${token ? '✅ Presente' : '❌ Ausente'}</p>
+                    <p>Usuario en localStorage: ${user ? '✅ Presente' : '❌ Ausente'}</p>
+                    <p>Token en sessionStorage: ${sessionToken ? '✅ Presente' : '❌ Ausente'}</p>
+                    <p>Usuario en sessionStorage: ${sessionUser ? '✅ Presente' : '❌ Ausente'}</p>
+                    <p>Cookies: ${cookies ? cookies.substring(0, 100) + '...' : '❌ Vacías'}</p>
+                </div>
+            `;
+        }
+        
+        function testReferralAPI() {
+            const resultDiv = document.getElementById('api-result');
+            resultDiv.innerHTML = '<p>Probando API...</p>';
+            
+            // Test del endpoint de validación que sabemos que funciona
+            fetch('https://grow5x.app/api/referrals/validate/PARENT001')
+                .then(response => response.json())
+                .then(data => {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <p><strong>✅ API de validación funciona</strong></p>
+                            <p>Respuesta: ${JSON.stringify(data, null, 2)}</p>
+                        </div>
+                    `;
+                })
+                .catch(error => {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <p><strong>❌ Error en API</strong></p>
+                            <p>Error: ${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        function testNavigation() {
+            const resultDiv = document.getElementById('nav-result');
+            
+            // Simular clic en enlace de navegación
+            const testUrl = 'https://grow5x.app/referrals';
+            
+            resultDiv.innerHTML = `
+                <div class="info">
+                    <p><strong>Simulando navegación:</strong></p>
+                    <p>URL objetivo: ${testUrl}</p>
+                    <p><a href="${testUrl}" target="_blank" style="background: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Abrir en nueva pestaña</a></p>
+                    <p><em>Nota: Verifica si la página se carga correctamente en la nueva pestaña</em></p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
