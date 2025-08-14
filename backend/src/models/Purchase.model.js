@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: [true, 'El ID del usuario es requerido']
+  },
   userId: {
     type: mongoose.Schema.Types.Mixed, // Permite ObjectId o String para compatibilidad con mock users
-    required: [true, 'El ID del usuario es requerido']
+    required: false // Mantener para compatibilidad
   },
   productId: {
     type: mongoose.Schema.Types.Mixed, // Permite ObjectId o String
@@ -105,6 +110,16 @@ const purchaseSchema = new mongoose.Schema({
   },
   completedAt: {
     type: Date
+  },
+  paidAt: {
+    type: Date
+  },
+  verifiedAt: {
+    type: Date
+  },
+  txHash: {
+    type: String,
+    trim: true
   }
 }, {
   timestamps: true,
