@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C2D12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A16207;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="75" cy="75" r="75" fill="url(#bg)"/>
+  <!-- Face -->
+  <circle cx="75" cy="65" r="35" fill="#FBBF24"/>
+  <!-- Eyes -->
+  <circle cx="65" cy="58" r="3" fill="#1F2937"/>
+  <circle cx="85" cy="58" r="3" fill="#1F2937"/>
+  <!-- Eyebrows -->
+  <path d="M 60 52 Q 65 50 70 52" stroke="#8B4513" stroke-width="2" fill="none"/>
+  <path d="M 80 52 Q 85 50 90 52" stroke="#8B4513" stroke-width="2" fill="none"/>
+  <!-- Nose -->
+  <ellipse cx="75" cy="68" rx="2" ry="3" fill="#F59E0B"/>
+  <!-- Mouth -->
+  <path d="M 68 75 Q 75 82 82 75" stroke="#DC2626" stroke-width="2" fill="none"/>
+  <!-- Hair -->
+  <path d="M 40 45 Q 75 25 110 45 Q 105 40 75 30 Q 45 40 40 45" fill="#8B4513"/>
+  <circle cx="50" cy="55" r="8" fill="#8B4513"/>
+  <circle cx="100" cy="55" r="8" fill="#8B4513"/>
+  <!-- Earrings -->
+  <circle cx="50" cy="65" r="2" fill="#F59E0B"/>
+  <circle cx="100" cy="65" r="2" fill="#F59E0B"/>
+  <!-- Initial -->
+  <text x="75" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">A</text>
+</svg>

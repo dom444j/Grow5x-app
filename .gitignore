@@ -1,0 +1,72 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Builds / bundling
+dist/
+build/
+.out/
+.next/
+.cache/
+coverage/
+*.log
+
+# Env / credenciales
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.keystore
+
+# SO / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Artefactos temporales
+*.swp
+*.tmp
+*.lock
+
+# Docs internos (no subir)
+*.md
+docs/
+
+# Archivos de sistema adicionales
+*.tar.gz
+*.zip
+*.rar
+
+# Logs y reportes
+logs/
+*.log
+reporte-*.json
+reporte-*.md
+
+# Archivos de prueba temporales
+test-*.html
+test-*.js
+verify-*.js
+debug-*.js
+temp-*.js
+
+# Archivos de configuración local
+ecosystem.config.js
+*.config.local.*
+
+# Respaldos y archivos temporales
+*.backup
+*.bak
+*.orig
+*.save
+
+# Archivos de deployment específicos
+deploy-*.js
+*.deployment
+
+# Archivos de monitoreo
+monitoring-*.md
+health-check-*.sh
