@@ -1,6 +1,8 @@
 # Dependencias
 node_modules/
 **/node_modules/
+package-lock.json
+yarn.lock
 
 # Builds / bundling
 dist/
@@ -31,13 +33,29 @@ Thumbs.db
 *.tmp
 *.lock
 
-# Docs internos (no subir)
+# EXCLUIR COMPLETAMENTE - NO SUBIR NUNCA
+# Documentación
 *.md
 *.txt
 docs/
 README*
 CHANGELOG*
 LICENSE*
+
+# Scripts
+*.sh
+*.ps1
+*.bat
+*.cmd
+
+# Tests
+*.test.*
+*.spec.*
+test/
+tests/
+__tests__/
+cypress/
+e2e/
 
 # Archivos de sistema adicionales
 *.tar.gz
@@ -47,15 +65,7 @@ LICENSE*
 # Logs y reportes
 logs/
 *.log
-reporte-*.json
-reporte-*.md
-
-# Archivos de prueba temporales
-test-*.html
-test-*.js
-verify-*.js
-debug-*.js
-temp-*.js
+reporte-*
 
 # Archivos de configuración local
 ecosystem.config.js
@@ -68,15 +78,25 @@ ecosystem.config.js
 *.save
 
 # Archivos de deployment específicos
-deploy-*.js
+deploy-*
 *.deployment
 
-# Scripts y archivos de monitoreo
-*.sh
-*.ps1
-*.bat
-*.cmd
+# Archivos de monitoreo
 monitoring-*
 health-check-*
 smoke-*
-test-*
+temp-*
+debug-*
+verify-*
+check-*
+clear-*
+fix-*
+init-*
+seed-*
+security-*
+compare-*
+extract-*
+integrate-*
+get-*
+enable-*
+disable-*
