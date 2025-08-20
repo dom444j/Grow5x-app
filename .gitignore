@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node
 node_modules/
 npm-debug.log*
@@ -132,3 +133,107 @@ scripts/production/
 monitoring/
 logs/
 *.log.*
+=======
+# Dependencias
+node_modules/
+**/node_modules/
+package-lock.json
+yarn.lock
+
+# Builds / bundling
+dist/
+build/
+.out/
+.next/
+.cache/
+coverage/
+*.log
+
+# Env / credenciales
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.keystore
+
+# SO / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Artefactos temporales
+*.swp
+*.tmp
+*.lock
+
+# EXCLUIR COMPLETAMENTE - NO SUBIR NUNCA
+# Documentación
+*.md
+*.txt
+docs/
+README*
+CHANGELOG*
+LICENSE*
+
+# Scripts
+*.sh
+*.ps1
+*.bat
+*.cmd
+
+# Tests
+*.test.*
+*.spec.*
+test/
+tests/
+__tests__/
+cypress/
+e2e/
+
+# Archivos de sistema adicionales
+*.tar.gz
+*.zip
+*.rar
+
+# Logs y reportes
+logs/
+*.log
+reporte-*
+
+# Archivos de configuración local
+ecosystem.config.js
+*.config.local.*
+
+# Respaldos y archivos temporales
+*.backup
+*.bak
+*.orig
+*.save
+
+# Archivos de deployment específicos
+deploy-*
+*.deployment
+
+# Archivos de monitoreo
+monitoring-*
+health-check-*
+smoke-*
+temp-*
+debug-*
+verify-*
+check-*
+clear-*
+fix-*
+init-*
+seed-*
+security-*
+compare-*
+extract-*
+integrate-*
+get-*
+enable-*
+disable-*
+>>>>>>> clean-reset

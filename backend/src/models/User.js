@@ -1,13 +1,27 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+<<<<<<< HEAD
 const crypto = require('crypto');
 const { generateReferralCode } = require('../utils/helpers');
 
 const userSchema = new mongoose.Schema({
+=======
+const { v4: uuidv4 } = require('uuid');
+const { DecimalCalc } = require('../utils/decimal');
+
+const userSchema = new mongoose.Schema({
+  // Basic Information
+  userId: {
+    type: String,
+    unique: true,
+    default: () => `USR_${uuidv4().replace(/-/g, '').substring(0, 12).toUpperCase()}`
+  },
+>>>>>>> clean-reset
   email: {
     type: String,
     required: true,
     unique: true,
+<<<<<<< HEAD
     trim: true,
     lowercase: true
   },
@@ -16,20 +30,39 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   fullName: {
+=======
+    lowercase: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6
+  },
+  firstName: {
+>>>>>>> clean-reset
     type: String,
     required: true,
     trim: true
   },
+<<<<<<< HEAD
   country: {
+=======
+  lastName: {
+>>>>>>> clean-reset
     type: String,
     required: true,
     trim: true
   },
+<<<<<<< HEAD
   // Campos adicionales de perfil para formularios
+=======
+>>>>>>> clean-reset
   phone: {
     type: String,
     trim: true
   },
+<<<<<<< HEAD
   dateOfBirth: {
     type: Date
   },
@@ -75,11 +108,94 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
     default: () => generateReferralCode()
+=======
+  country: {
+    type: String,
+    trim: true
+  },
+  
+  // Account Status
+  isActive: {
+    type: Boolean,
+    default: false
+  },
+  isVerified: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  
+  // Special Parent Status (separate from role)
+  specialParentStatus: {
+    type: String,
+    enum: ['none', 'special_parent'],
+    default: 'none'
+  },
+  specialParentCode: {
+    type: String,
+    sparse: true,
+    unique: true
+  },
+  specialParentAssignedAt: {
+    type: Date
+  },
+  specialParentAssignedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  
+  // Telegram Integration
+  telegramChatId: {
+    type: String,
+    sparse: true
+  },
+  telegramUsername: {
+    type: String,
+    sparse: true
+  },
+  telegramVerified: {
+    type: Boolean,
+    default: false
+  },
+  telegramVerifiedAt: {
+    type: Date
+  },
+  
+  // User Settings
+  defaultWithdrawalAddress: {
+    type: String,
+    trim: true,
+    validate: {
+      validator: function(v) {
+        if (!v) return true; // Optional field
+        // BEP20 address validation (42 chars, starts with 0x)
+        return /^0x[a-fA-F0-9]{40}$/.test(v);
+      },
+      message: 'Invalid BEP20 address format'
+    }
+  },
+  network: {
+    type: String,
+    default: 'BEP20',
+    enum: ['BEP20']
+  },
+  
+  // Referral System
+  referralCode: {
+    type: String,
+    unique: true,
+    default: () => `REF_${Math.random().toString(36).substring(2, 10).toUpperCase()}`
+>>>>>>> clean-reset
   },
   referredBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
+<<<<<<< HEAD
   referrals: [{
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -543,16 +659,135 @@ userSchema.index({ 'withdrawalDebits.lastWithdrawalDate': 1 });
 userSchema.index({ 'investments.lastInvestmentDate': 1 });
 
 // Virtual for account lock
+=======
+  referralLevel: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 10
+  },
+  
+  // Financial Information
+  totalInvested: {
+    type: mongoose.Schema.Types.Decimal128,
+    default: 0,
+    min: 0
+  },
+  totalEarnings: {
+    type: mongoose.Schema.Types.Decimal128,
+    default: 0,
+    min: 0
+  },
+  availableBalance: {
+    type: mongoose.Schema.Types.Decimal128,
+    default: 0,
+    min: 0
+  },
+  totalWithdrawn: {
+    type: mongoose.Schema.Types.Decimal128,
+    default: 0,
+    min: 0
+  },
+  
+  // Commission Tracking
+  totalCommissions: {
+    type: mongoose.Schema.Types.Decimal128,
+    default: 0,
+    min: 0
+  },
+  availableCommissions: {
+    type: mongoose.Schema.Types.Decimal128,
+    default: 0,
+    min: 0
+  },
+  
+  // Security
+  lastLogin: {
+    type: Date
+  },
+  loginAttempts: {
+    type: Number,
+    default: 0
+  },
+  lockUntil: {
+    type: Date
+  },
+  passwordResetToken: {
+    type: String
+  },
+  passwordResetExpires: {
+    type: Date
+  },
+  
+  // Verification
+  emailVerificationToken: {
+    type: String
+  },
+  emailVerificationExpires: {
+    type: Date
+  },
+  
+  // Session Management
+  tokenVersion: {
+    type: Number,
+    default: 0
+  },
+  
+  // Metadata
+  registrationIP: {
+    type: String
+  },
+  lastIP: {
+    type: String
+  },
+  userAgent: {
+    type: String
+  }
+}, {
+  timestamps: true,
+  toJSON: {
+    transform: function(doc, ret) {
+      delete ret.password;
+      delete ret.passwordResetToken;
+      delete ret.emailVerificationToken;
+      delete ret.loginAttempts;
+      delete ret.lockUntil;
+      return ret;
+    }
+  }
+});
+
+// Indexes
+userSchema.index({ email: 1 });
+userSchema.index({ userId: 1 });
+userSchema.index({ referralCode: 1 });
+userSchema.index({ telegramChatId: 1 }, { sparse: true });
+userSchema.index({ specialParentStatus: 1 });
+userSchema.index({ specialParentCode: 1 }, { sparse: true });
+userSchema.index({ createdAt: 1 });
+
+// Virtual for account lock status
+>>>>>>> clean-reset
 userSchema.virtual('isLocked').get(function() {
   return !!(this.lockUntil && this.lockUntil > Date.now());
 });
 
+<<<<<<< HEAD
 // Pre-save middleware to hash password
 userSchema.pre('save', async function(next) {
   // Set wasNew flag for post-save middleware
   this.wasNew = this.isNew;
   console.log(`[REFERRAL] Pre-save hook: user ${this.email}, isNew: ${this.isNew}, wasNew: ${this.wasNew}`);
   
+=======
+// Virtual for full name
+userSchema.virtual('fullName').get(function() {
+  return `${this.firstName} ${this.lastName}`;
+});
+
+// Pre-save middleware to hash password
+userSchema.pre('save', async function(next) {
+>>>>>>> clean-reset
   if (!this.isModified('password')) return next();
   
   try {
@@ -564,6 +799,7 @@ userSchema.pre('save', async function(next) {
   }
 });
 
+<<<<<<< HEAD
 // Post-save middleware to create Referral record when user is registered with referredBy
 userSchema.post('save', async function(doc, next) {
   console.log(`[REFERRAL] Post-save hook triggered for user: ${doc.email}, wasNew: ${doc.wasNew}, referredBy: ${doc.referredBy}`);
@@ -618,6 +854,8 @@ userSchema.post('save', async function(doc, next) {
   if (next) next();
 });
 
+=======
+>>>>>>> clean-reset
 // Method to compare password
 userSchema.methods.comparePassword = async function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
@@ -650,6 +888,41 @@ userSchema.methods.resetLoginAttempts = function() {
   });
 };
 
+<<<<<<< HEAD
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+=======
+// Method to invalidate all user tokens
+userSchema.methods.invalidateTokens = function() {
+  this.tokenVersion += 1;
+  return this.save();
+};
+
+// Static method to find by email
+userSchema.statics.findByEmail = function(email) {
+  return this.findOne({ email: email.toLowerCase() });
+};
+
+// Static method to find by referral code
+userSchema.statics.findByReferralCode = function(code) {
+  return this.findOne({ referralCode: code.toUpperCase() });
+};
+
+// Method to update user balance
+userSchema.methods.updateBalance = function(currency, amount, reason = 'balance_update') {
+  if (currency === 'USDT') {
+    // Convert Decimal128 to number for calculation
+    const currentBalance = parseFloat(this.availableBalance.toString()) || 0;
+    const newBalance = DecimalCalc.max(0, DecimalCalc.add(currentBalance, amount)); // Ensure balance doesn't go negative
+    
+    this.availableBalance = mongoose.Types.Decimal128.fromString(newBalance.toString());
+    
+    return this.save();
+  }
+  
+  throw new Error(`Unsupported currency: ${currency}`);
+};
+
+module.exports = mongoose.model('User', userSchema);
+>>>>>>> clean-reset

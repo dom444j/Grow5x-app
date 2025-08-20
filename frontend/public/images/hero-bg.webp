@@ -1,0 +1,29 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="accent1" cx="20%" cy="20%" r="30%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="accent2" cx="80%" cy="80%" r="40%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Base gradient background -->
+  <rect width="1920" height="1080" fill="url(#heroGradient)" />
+  
+  <!-- Accent gradients -->
+  <rect width="1920" height="1080" fill="url(#accent1)" />
+  <rect width="1920" height="1080" fill="url(#accent2)" />
+  
+  <!-- Subtle geometric patterns -->
+  <circle cx="400" cy="200" r="100" fill="#3b82f6" opacity="0.05" />
+  <circle cx="1500" cy="800" r="150" fill="#8b5cf6" opacity="0.05" />
+  <circle cx="200" cy="900" r="80" fill="#10b981" opacity="0.05" />
+</svg>
