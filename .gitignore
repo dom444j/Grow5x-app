@@ -33,7 +33,11 @@ Thumbs.db
 
 # Docs internos (no subir)
 *.md
+*.txt
 docs/
+README*
+CHANGELOG*
+LICENSE*
 
 # Archivos de sistema adicionales
 *.tar.gz
@@ -67,6 +71,12 @@ ecosystem.config.js
 deploy-*.js
 *.deployment
 
-# Archivos de monitoreo
-monitoring-*.md
-health-check-*.sh
+# Scripts y archivos de monitoreo
+*.sh
+*.ps1
+*.bat
+*.cmd
+monitoring-*
+health-check-*
+smoke-*
+test-*
